@@ -1,19 +1,20 @@
 package net.blogjava;
 
+import redis.clients.jedis.Jedis;
+
 public class RedisBackedCache {
+	private final Jedis jedis;
 
 	public RedisBackedCache(String address, Integer port) {
-		// TODO Auto-generated constructor stub
+		this.jedis = new Jedis(address, port);
 	}
 
-	public void put(String string, String string2) {
-		// TODO Auto-generated method stub
-		
+	public void put(String field, String value) {
+		this.jedis.hset("default", field, value);
 	}
 
-	public String get(String string) {
-		// TODO Auto-generated method stub
-		return null;
+	public String get(String field) {
+		return this.jedis.hget("default", field);
 	}
 
 }
