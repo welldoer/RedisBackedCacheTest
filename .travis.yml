@@ -15,4 +15,5 @@ cache:
 
 script:
   - gradle check
+  - cat /home/travis/build/welldoer/RedisBackedCacheTest/build/reports/tests/test/index.html
   - cat /home/travis/build/welldoer/RedisBackedCacheTest/build/test-results/test/TEST-net.blogjava.*.xml
